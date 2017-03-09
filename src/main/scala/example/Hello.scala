@@ -24,8 +24,13 @@ object Hello {
       val statusText: String = response.statusText
       val bodyText: String = response.body
       println(s"Got a response $statusText value $bodyText")
+      saveFile(bodyText)
     }
   }
 
-
+  def saveFile(content: String) = {
+    val writer = new PrintWriter(new File("test.txt" ))
+    writer.write(content)
+    writer.close()
+  }
 }
