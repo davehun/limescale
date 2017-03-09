@@ -43,11 +43,15 @@ object Hello {
   def processJson(asJson: JsValue){
 
       for (thing <- asJson\\"*") {
-        //longest(thing.asString())
-        //mostCommon(thing)
-        println(thing.toString())
+        var allWords:  Array[String] = thing.toString().split("[ |\\[|\\]\\{|\\}]")
+         //longest String: = longest()
+         //commoner String: = mostCommon(thing)
+        allWords.foreach (println)
       }
   }
+
+
+
 
   def saveFile(content: String) = {
     val writer = new PrintWriter(new File("test.txt" ))
