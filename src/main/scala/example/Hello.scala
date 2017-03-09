@@ -33,8 +33,17 @@ object Hello {
       val statusText: String = response.statusText
       val bodyText: String = response.body
       val asJson: JsValue = response.json
+      //'query":{"normalized":[{"from":"java","to":"Java"}],"pages":{"69336":{"pageid":69336,"ns":0,"title":"Java","revisions":[{"contentformat":"text/x-wiki","contentmodel":"wikitext","*":"'
+      processJson(asJson)
       println(s"Got a response $statusText value $bodyText")
       saveFile(bodyText)
+    }
+  }
+  
+  def processJson(asJson: JsValue){
+    for ((var aVar) <- asJson\\"*" )
+    {
+      println(aVar)
     }
   }
 
