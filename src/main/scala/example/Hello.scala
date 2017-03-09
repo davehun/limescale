@@ -11,6 +11,11 @@ import java.io._
 object Hello {
 
   def main(args: Array[String]): Unit = {
+    if (args.length == 0) {
+     println("Argument required")
+     return
+    }
+
     val page: String = args(0)
     implicit val system = ActorSystem()
     implicit val materializer = ActorMaterializer()
